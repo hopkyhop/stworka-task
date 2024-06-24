@@ -1,36 +1,57 @@
 @import url("reset.css");
 @font-face {
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfMZg.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfMZg.ttf)
+    format("truetype");
 }
 @font-face {
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYMZg.ttf) format('truetype');
+  src: url(https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYMZg.ttf)
+    format("truetype");
 }
+
+.circle-progress {
+  --progress: 50; /* Значение прогресса */
+  --size: 60px;
+  --bg-stroke-width: 1px;
+  --progress-stroke-width: 2px;
+  --radius: calc((var(--size) - var(--progress-stroke-width)) / 2);
+  --pi: 3.14159;
+  /* Длина окружности */
+  --circumference: calc(var(--radius) * var(--pi) * 2);
+  /* Длина progress */
+  --dash: calc((var(--progress) * var(--circumference)) / 100);
+  --progress-bg-color: rgba(255, 255, 255, 0.5);
+  --progress-color: rgba(255, 255, 255, 1);
+}
+
 .circle-progress circle {
-  cx: 30px;
-  cy: 30px;
-  r: calc((60px - 2px) / 2);
+  cx: calc(var(--size) / 2);
+  cy: calc(var(--size) / 2);
+  r: var(--radius);
   fill: none;
   stroke-linecap: round;
 }
+
 .circle-progress circle.background {
-  stroke: #fff;
-  stroke-width: 1px;
+  stroke: var(--progress-bg-color);
+  stroke-width: var(--bg-stroke-width);
 }
+
 .circle-progress circle.progress {
+  stroke: var(--progress-color);
+  stroke-width: var(--progress-stroke-width);
   transform: rotate(-90deg);
-  stroke-width: 2px;
-  transform-origin: 30px 30px;
-  stroke-dasharray: calc((2 * calc(calc((60px - 2px) / 2) * 3.14159 * 2)) / 100) calc(calc(calc((60px - 2px) / 2) * 3.14159 * 2) - calc((2 * calc(calc((60px - 2px) / 2) * 3.14159 * 2)) / 100));
-  stroke: #fff;
+  transform-origin: center;
+  stroke-dasharray: var(--dash) calc(var(--circumference) - var(--dash));
 }
+
 body {
   display: flex;
   font-family: "Inter", sans-serif;
