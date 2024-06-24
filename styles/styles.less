@@ -1,0 +1,74 @@
+@import url("reset.css");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
+
+@import url('variables.less');
+@import url('progress-styles.less');
+
+body {
+  display: flex;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 18px;
+  background-color: @white-color;
+  color: @white-color;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  padding: 12px 18px 15px 22px;
+  border-radius: 10px;
+  background: @bg-color;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  margin-right: 68px;
+}
+
+.progress-bar {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  margin-right: 18px;
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0 13px;
+  margin-bottom: 4px;
+  background: @badge-color;
+  color: @white-color;
+  text-align: center;
+  border-radius: 40px;
+}
+
+.status {
+  margin-bottom: 4px;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.button {
+  padding: 10px 26px;
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  background: @btn-bg-color;
+  color: @btn-text-color;
+  border-radius: 6px;
+}

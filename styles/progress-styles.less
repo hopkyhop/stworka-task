@@ -1,0 +1,36 @@
+//процент прогресса
+@progress: 2;
+
+@size: 60px;
+@bg-stroke-width: 1px;
+@progress-stroke-width: 2px;
+@radius: calc((@size - @progress-stroke-width) / 2);
+@pi: 3.14159;
+//длина окружности
+@circumference: calc(@radius * @pi * 2);
+//длина progress
+@dash: calc((@progress * @circumference) / 100);
+
+@propress-bg-color: rgba(255, 255, 255, 0);
+@progress-color: rgba(255, 255, 255, 1);
+
+.circle-progress {
+  circle {
+    cx: (@size / 2);
+    cy: (@size / 2);
+    r: @radius;
+    fill: none;
+    stroke-linecap: round;
+  }
+  circle.background {
+    stroke: @white-color;
+    stroke-width: @bg-stroke-width;
+  }
+  circle.progress {
+    transform: rotate(-90deg);
+    stroke-width: @progress-stroke-width;
+    transform-origin: (@size / 2) (@size / 2);
+    stroke-dasharray: @dash calc(@circumference - @dash);
+    stroke: @white-color;
+  }
+}
