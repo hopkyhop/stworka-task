@@ -1,0 +1,94 @@
+@import url("reset.css");
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfMZg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYMZg.ttf) format('truetype');
+}
+.circle-progress circle {
+  cx: 30px;
+  cy: 30px;
+  r: calc((60px - 2px) / 2);
+  fill: none;
+  stroke-linecap: round;
+}
+.circle-progress circle.background {
+  stroke: #fff;
+  stroke-width: 1px;
+}
+.circle-progress circle.progress {
+  transform: rotate(-90deg);
+  stroke-width: 2px;
+  transform-origin: 30px 30px;
+  stroke-dasharray: calc((2 * calc(calc((60px - 2px) / 2) * 3.14159 * 2)) / 100) calc(calc(calc((60px - 2px) / 2) * 3.14159 * 2) - calc((2 * calc(calc((60px - 2px) / 2) * 3.14159 * 2)) / 100));
+  stroke: #fff;
+}
+body {
+  display: flex;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 12px;
+  line-height: 18px;
+  background-color: #fff;
+  color: #fff;
+}
+.container {
+  display: flex;
+  align-items: center;
+  padding: 12px 18px 15px 22px;
+  border-radius: 10px;
+  background: #3579f5;
+}
+.content {
+  display: flex;
+  align-items: center;
+  margin-right: 68px;
+}
+.progress-bar {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  margin-right: 18px;
+}
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  line-height: 30px;
+}
+.badge {
+  display: inline-block;
+  padding: 0 13px;
+  margin-bottom: 4px;
+  background: #2364db;
+  color: #fff;
+  text-align: center;
+  border-radius: 40px;
+}
+.status {
+  margin-bottom: 4px;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 600;
+}
+.button {
+  padding: 10px 26px;
+  margin-top: 4px;
+  font-size: 14px;
+  line-height: 20px;
+  background: #f4f8ff;
+  color: #4777ed;
+  border-radius: 6px;
+}
